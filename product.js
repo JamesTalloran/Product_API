@@ -1,9 +1,13 @@
 const express = require("express")
+const cors = require("cors")
 const productRouter = require("./routes/productRoutes")
 const mongooseDB = require("./config/db")
 const app = express()
 
 app.use(express.json())
+
+app.use(cors())
+
 mongooseDB()
 app.use("/api", productRouter)
 
